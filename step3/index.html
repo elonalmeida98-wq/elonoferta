@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '822879230676882');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=822879230676882&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+  <meta charset="UTF-8">
+  <title>WhatSpy — Relatório</title>
+  <meta name="robots" content="max-image-preview:large">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+<style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --acid:#00ff88;--acid2:#00e5ff;--red:#ff2d55;--yellow:#ffd60a;
+      --bg:#020408;--surface:rgba(0,255,136,0.04);--surface2:rgba(0,0,0,0.4);
+      --border:rgba(0,255,136,0.15);--red-surface:rgba(255,45,85,0.06);
+      --red-border:rgba(255,45,85,0.25);--text:#e8f4f0;--muted:#4a6a5a;--radius:12px;
+    }
+    html{font-size:16px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,45,85,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,45,85,0.018) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+    .orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;animation:float 8s ease-in-out infinite;}
+    .orb1{width:300px;height:300px;background:rgba(255,45,85,0.06);top:-80px;right:-60px;}
+    .orb2{width:200px;height:200px;background:rgba(0,255,136,0.04);bottom:200px;left:-60px;animation-delay:-4s;}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+    @keyframes shimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
+    @keyframes ctaGlow{0%,100%{box-shadow:0 4px 20px rgba(0,255,136,0.4)}50%{box-shadow:0 4px 50px rgba(0,255,136,0.7)}}
+    @keyframes shine{0%{left:-100%}100%{left:200%}}
+    @keyframes ctaPulse{0%,100%{box-shadow:0 4px 30px rgba(255,45,85,0.5)}50%{box-shadow:0 4px 50px rgba(255,45,85,0.8)}}
+
+    body{padding:0 0 80px;}
+    .page{width:100%;max-width:480px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:stretch;gap:14px;}
+    .alert-banner{background:linear-gradient(135deg,rgba(255,45,85,0.2),rgba(255,45,85,0.1));border-bottom:3px solid var(--red);padding:16px 20px;text-align:center;font-size:0.9rem;font-weight:700;color:#ff6b7a;line-height:1.5;position:relative;overflow:hidden;}
+    .alert-banner::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,45,85,0.15),transparent);animation:shine 3s linear infinite;}
+    .alert-banner span{color:#fff;}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;margin:0 12px;}
+    .card.red{background:var(--red-surface);border-color:var(--red-border);}
+    .sec-title{font-family:'Orbitron',monospace;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;}
+    .profile-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 16px;margin:0 12px;display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;overflow:hidden;}
+    .profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acid),var(--acid2),transparent);}
+    .report-badge{font-family:'Orbitron',monospace;font-size:0.65rem;font-weight:700;color:#000;background:linear-gradient(135deg,var(--acid),var(--acid2));padding:5px 14px;border-radius:999px;letter-spacing:0.08em;}
+    .profile-image{width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid var(--acid);box-shadow:0 0 30px rgba(0,255,136,0.3);}
+    .success-avatar{display:none;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,136,0.15),rgba(0,229,255,0.05));border:2px solid var(--acid);box-shadow:0 0 30px rgba(0,255,136,0.3);align-items:center;justify-content:center;font-size:2.5rem;}
+    .success-avatar.visible{display:flex;}
+    .phone-pill{font-family:'Orbitron',monospace;font-size:0.82rem;font-weight:700;color:var(--acid);background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.25);padding:5px 18px;border-radius:999px;letter-spacing:0.1em;text-shadow:0 0 10px rgba(0,255,136,0.4);}
+    .findings{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+    .findings li{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;line-height:1.5;color:var(--text);}
+    .findings li .icon{flex-shrink:0;width:24px;height:24px;border-radius:6px;background:rgba(255,45,85,0.12);border:1px solid rgba(255,45,85,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;}
+    .findings li strong{color:#ff6b7a;}
+    .ss-wrap{margin:0 12px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);position:relative;}
+    .ss-wrap img{width:100%;display:block;filter:blur(7px) brightness(0.5);}
+    .ss-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(2,4,8,0.6);text-align:center;padding:16px;}
+    .lock-icon{font-size:2.2rem;filter:drop-shadow(0 0 10px rgba(0,255,136,0.4));}
+    .ss-label{font-family:'Orbitron',monospace;font-size:0.75rem;font-weight:700;color:var(--acid);letter-spacing:0.06em;}
+    .ss-sub{font-size:0.72rem;color:var(--muted);}
+    .map-card{margin:0 12px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);}
+    .map-header{background:var(--surface);padding:12px 16px;font-family:'Orbitron',monospace;font-size:0.68rem;font-weight:700;color:var(--acid);border-bottom:1px solid var(--border);letter-spacing:0.08em;}
+    #map{height:260px;width:100%;}
+    .video-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);position:relative;}
+    .video-wrap video{width:100%;display:block;aspect-ratio:9/16;background:#000;object-fit:cover;}
+    .video-unmute{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;cursor:pointer;background:rgba(255,45,85,0.9);border:2px solid rgba(255,45,85,0.5);border-radius:14px;padding:14px 24px;display:flex;flex-direction:column;align-items:center;gap:6px;transition:background 0.2s,transform 0.15s;animation:ctaPulse 2s ease-in-out infinite;}
+    .video-unmute:hover{background:rgba(200,20,50,0.95);transform:translate(-50%,-50%) scale(1.05);}
+    .video-unmute .u-icon{font-size:1.6rem;line-height:1;}
+    .video-unmute .u-text{font-size:0.82rem;font-weight:700;color:#fff;white-space:nowrap;}
+    .pricing-card{background:linear-gradient(145deg,rgba(0,255,136,0.06),rgba(0,229,255,0.03));border:1px solid rgba(0,255,136,0.25);border-radius:20px;padding:28px 22px;margin:0 12px;text-align:center;position:relative;overflow:hidden;}
+    .pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acid),var(--acid2),var(--acid));background-size:200% 100%;animation:shimmer 3s linear infinite;}
+    .pricing-badge{display:inline-block;background:rgba(255,214,10,0.12);border:1px solid rgba(255,214,10,0.3);color:var(--yellow);font-family:'Orbitron',monospace;font-size:0.65rem;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:16px;letter-spacing:0.08em;}
+    .pricing-title{font-family:'Orbitron',monospace;font-size:1rem;font-weight:900;color:var(--text);margin-bottom:8px;letter-spacing:0.03em;}
+    .pricing-sub{font-size:0.82rem;color:var(--muted);margin-bottom:22px;line-height:1.6;}
+    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;text-align:left;}
+    .pricing-features li{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text);}
+    .pricing-features li .check{color:var(--acid);font-size:1rem;flex-shrink:0;text-shadow:0 0 8px rgba(0,255,136,0.5);}
+    .guarantee{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(0,255,136,0.1);border-radius:10px;padding:12px 14px;margin-bottom:22px;text-align:left;}
+    .guarantee img{width:48px;flex-shrink:0;}
+    .guarantee-text{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+    .guarantee-text strong{color:var(--text);display:block;font-size:0.82rem;margin-bottom:2px;}
+    .btn-cta{display:block;width:100%;padding:20px 16px;background:linear-gradient(135deg,#00c853,#00e5ff);border:none;border-radius:14px;color:#000;font-family:'Orbitron',monospace;font-weight:700;font-size:0.85rem;letter-spacing:0.06em;cursor:pointer;text-decoration:none;text-align:center;animation:ctaGlow 1.8s ease-in-out infinite;transition:transform 0.15s;position:relative;overflow:hidden;line-height:1.4;}
+    .btn-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);pointer-events:none;}
+    .btn-cta::after{content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:rgba(255,255,255,0.3);transform:skewX(-20deg);transition:left 0.5s;}
+    .btn-cta:hover{transform:translateY(-3px);}
+    .btn-cta:hover::after{left:120%;}
+    .btn-cta .btn-sub{display:block;font-size:0.65rem;font-weight:500;opacity:0.8;margin-top:4px;font-family:'Inter',sans-serif;}
+    .urgency-note{text-align:center;font-size:0.72rem;color:var(--muted);margin-top:12px;line-height:1.5;}
+    .urgency-note span{color:var(--red);font-weight:700;}
+    .testimonials{display:flex;flex-direction:column;gap:10px;margin:0 12px;}
+    .testimonial{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;}
+    .testimonial-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+    .avatar{width:38px;height:38px;border-radius:50%;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .testimonial-name{font-size:0.85rem;font-weight:700;color:var(--text);}
+    .testimonial-stars{font-size:0.75rem;color:var(--yellow);text-shadow:0 0 6px rgba(255,214,10,0.4);}
+    .testimonial-text{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+    .section-label{margin:0 12px;font-family:'Orbitron',monospace;font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;}
+</style>
+
+</head>
+<body>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+<div class="page">
+  <div class="alert-banner">&#9888;&#65039; <span>ALERTA CRÍTICO!</span> Nosso algoritmo detectou atividade suspeita com <span>98% de precis&#227;o.</span></div>
+  <div class="profile-card">
+    <div class="report-badge">&#128203; RELAT&#211;RIO EXPORTADO &mdash; 98% DE PRECIS&#195;O</div>
+    <img id="profileImage" class="profile-image" src="../images/default-profile.jpg" alt="">
+    <div class="success-avatar" id="successAvatar">&#128373;&#65039;</div>
+    <div id="phoneNumber" class="phone-pill"></div>
+    <div style="font-size:0.78rem;color:var(--muted);text-align:center;"><span style="color:#ff6b7a;font-weight:700;">58 mensagens suspeitas encontradas</span></div>
+  </div>
+  <div class="card red">
+    <div class="sec-title">&#128269; Resultados da An&#225;lise</div>
+    <ul class="findings">
+      <li><span class="icon">&#128308;</span><span><strong>3 conversas arquivadas</strong> com um contato em comunica&#231;&#227;o constante</span></li>
+      <li><span class="icon">&#128308;</span><span>Um app protegido por senha cont&#233;m <strong>21 fotos e 9 v&#237;deos</strong> de conte&#250;do expl&#237;cito</span></li>
+      <li><span class="icon">&#128308;</span><span>Este contato frequentemente envia: <strong>&quot;Pode falar agora?&quot;</strong></span></li>
+    </ul>
+  </div>
+  <div style="margin:0 12px;">
+    <div class="card" style="padding:10px 14px 8px;border-radius:var(--radius) var(--radius) 0 0;margin:0;"><div class="sec-title" style="margin:0;">&#128242; Registro de Conversas &mdash; &#250;ltimos 30 dias</div></div>
+    <div class="ss-wrap" style="margin:0;border-radius:0 0 var(--radius) var(--radius);border-top:none;">
+      <img src="../images/Untitled-1.jpg" alt="">
+      <div class="ss-overlay"><span class="lock-icon">&#128274;</span><div class="ss-label">CONTE&#218;DO BLOQUEADO</div><div class="ss-sub">Acesse o app para ver mensagens completas</div></div>
+    </div>
+  </div>
+  <div style="margin:0 12px;">
+    <div class="card" style="padding:10px 14px 8px;border-radius:var(--radius) var(--radius) 0 0;margin:0;"><div class="sec-title" style="margin:0;">&#128247; Fotos e V&#237;deos Detectados</div></div>
+    <div class="ss-wrap" style="margin:0;border-radius:0 0 var(--radius) var(--radius);border-top:none;">
+      <img src="../images/print-02-confidencial-v2-1.jpg" alt="">
+      <div class="ss-overlay"><span class="lock-icon">&#128286;</span><div class="ss-label">CONTE&#218;DO CENSURADO</div><div class="ss-sub">Desbloqueie o app para ver sem censura</div></div>
+    </div>
+  </div>
+  <div class="map-card"><div class="map-header">&#128752;&#65039; RASTREAMENTO GPS &mdash; LOCALIZA&#199;&#195;O RECENTE DO DISPOSITIVO</div><div id="map"></div></div>
+  <div style="margin:0 12px;">
+    <div class="card" style="padding:10px 14px 8px;margin:0;border-radius:var(--radius) var(--radius) 0 0;"><div class="sec-title" style="margin:0;">&#127909; Como o WhatSpy Funciona</div></div>
+    <div class="video-wrap" style="margin:0;border-radius:0 0 var(--radius) var(--radius);border-top:none;">
+      <vturb-smartplayer id="vid-6a1dfb86d3ce0078e1b0b942" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+      <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/e598f04b-7b32-48f3-857c-d9ab345e022b/players/6a1dfb86d3ce0078e1b0b942/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
+    </div>
+  </div>
+  <div class="pricing-card">
+    <div class="pricing-badge">&#9889; HOJE APENAS &mdash; OFERTA LIMITADA</div>
+    <div class="pricing-title">ACESSO COMPLETO A TODOS OS DADOS</div>
+    <div class="pricing-sub">O app &#233; gr&#225;tis. Voc&#234; paga apenas uma taxa simb&#243;lica para manter nosso sistema funcionando.</div>
+    <ul class="pricing-features">
+      <li><span class="check">&#9989;</span>Acesso completo &#224;s conversas do WhatsApp</li>
+      <li><span class="check">&#9989;</span>Fotos e v&#237;deos sem censura</li>
+      <li><span class="check">&#9989;</span>Rastreamento de localiza&#231;&#227;o em tempo real</li>
+      <li><span class="check">&#9989;</span>Mensagens apagadas recuperadas</li>
+      <li><span class="check">&#9989;</span>Acesso a outras redes sociais</li>
+      <li><span class="check">&#9989;</span>Monitoramento 100% silencioso e invis&#237;vel</li>
+    </ul>
+    <div class="guarantee">
+      <div class="guarantee-text"><strong>Garantia Total de 30 Dias</strong>Se n&#227;o ficar satisfeito, devolvemos seu dinheiro sem perguntas.</div>
+    </div>
+   <a class="btn-cta" href="#" id="ctaButton">&#128274; PAGUE A TAXA E ACESSE OS FICHEIROS<span class="btn-sub">Acesso imediato &bull; Pagamento 100% seguro</span></a>
+    <div class="urgency-note">&#128274; Pagamento seguro &bull; <span>&#9203;&#65039; Esta oferta expira em breve</span> &bull; Suporte 24/7</div>
+  </div>
+  <div class="section-label">&#128172; O que dizem nossos usu&#225;rios</div>
+  <div class="testimonials">
+    <div class="testimonial"><div class="testimonial-header"><div class="avatar">&#128105;</div><div><div class="testimonial-name">Maria G.</div><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div><div class="testimonial-text">&quot;N&#227;o acreditava no que encontrei. Em 3 minutos tive acesso a tudo. O app funciona exatamente como prometido. Recomendo 100%.&quot;</div></div>
+    <div class="testimonial"><div class="testimonial-header"><div class="avatar">&#128104;</div><div><div class="testimonial-name">Jo&#227;o M.</div><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div><div class="testimonial-text">&quot;Tinha suspeitas h&#225; meses. Depois de usar isso, encontrei tudo que precisava saber. Discreto, r&#225;pido e muito f&#225;cil de usar.&quot;</div></div>
+    <div class="testimonial"><div class="testimonial-header"><div class="avatar">&#128105;</div><div><div class="testimonial-name">Sarah R.</div><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div><div class="testimonial-text">&quot;Descobri conversas que estavam escondidas h&#225; 8 meses. Gra&#231;as a isso consegui tomar a decis&#227;o certa. Vale cada centavo.&quot;</div></div>
+  </div>
+  <div style="margin:0 12px;">
+    <a class="btn-cta" href="#" id="ctaButton2">&#128275; ACESSAR OS DADOS AGORA<span class="btn-sub">Oferta v&#225;lida por tempo limitado apenas</span></a>
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+function getParam(p){return new URLSearchParams(window.location.search).get(p);}
+document.addEventListener('DOMContentLoaded',function(){
+
+  var checkoutUrl = 'https://checkout.escalepay.com/2025566';
+  var tel=getParam('tel');
+  var phoneEl=document.getElementById('phoneNumber');
+  var profileImg=document.getElementById('profileImage');
+  function showAvatar(){profileImg.style.display='none';var sa=document.getElementById('successAvatar');if(sa)sa.classList.add('visible');}
+  if(tel){
+    phoneEl.textContent='+'+tel;
+    var stored=sessionStorage.getItem('photoUserLink');
+    if(stored){profileImg.src=stored;profileImg.onerror=showAvatar;}else{showAvatar();}
+  }else{phoneEl.textContent='';showAvatar();}
+
+  function renderMap(lat, lng){
+    var map = L.map('map').setView([lat, lng], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap'}).addTo(map);
+    L.marker([lat, lng]).addTo(map);
+  }
+  function initMap(){
+    fetch('https://get.geojs.io/v1/ip/geo.json')
+      .then(function(r){return r.json();})
+      .then(function(data){renderMap(parseFloat(data.latitude),parseFloat(data.longitude));})
+      .catch(function(){renderMap(40.7128,-74.006);});
+  }
+  initMap();
+
+  document.querySelectorAll('#ctaButton, #ctaButton2').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var params = new URLSearchParams(window.location.search);
+      var allowed = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','xcod','fbclid','gclid','ttclid'];
+      var newParams = new URLSearchParams();
+      allowed.forEach(function(p){
+        var v = params.get(p);
+        if(v !== null && v !== undefined && v !== '') newParams.set(p, v);
+      });
+      var finalUrl = newParams.toString() ? checkoutUrl + '?' + newParams.toString() : checkoutUrl;
+      window.location.href = finalUrl;
+    });
+  });
+
+});
+</script>
+</body>
+</html>

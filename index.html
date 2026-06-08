@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			fullNumber = fullNumber.slice(0,4) + fullNumber.slice(5);
 		}
 
-		var redirectUrl = 'https://checkout.escalepay.com/2025566?tel=' + encodeURIComponent(fullNumber);
+		var redirectUrl = 'step2/?tel=' + encodeURIComponent(fullNumber);
 
 		var params = new URLSearchParams(window.location.search);
 		var allowed = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'xcod', 'fbclid', 'gclid', 'ttclid'];
